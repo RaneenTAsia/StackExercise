@@ -10,22 +10,24 @@ namespace Stack
     {
         public Node()
         {
-
         }
+
         public Node(T data, Node<T> next)
         {
             Data = data;
             Next = next;
         }
+
         public Node(T data)
         {
             Data = data;
         }
 
+        public T? Data { get; set; }
 
-        public T Data { get; set; }
-        public Node<T> Next { get; set; }
-        public override string ToString()
+        public Node<T>? Next { get; set; }
+
+        public override string? ToString()
         {
             if (Data != null)
             {

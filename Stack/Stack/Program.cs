@@ -2,25 +2,25 @@
 using Stack;
 
 Console.WriteLine("Hello, World!");
-StackDS<int> stack = new StackDS<int>();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-stack.push(4);
-stack.push(5);
-stack.push(6);
+Stack.Stack<int> stack = new Stack.Stack<int>();
+
+Console.WriteLine($"First Push: {stack.Push(1)}");
+stack.Push(2);
+stack.Push(3);
+stack.Push(4);
+stack.Push(5);
+stack.Push(6);
 Console.WriteLine("First Stack");
-stack.print();
+stack.Print();
 
-Console.WriteLine("Peak:");
-stack.peak();
+Console.WriteLine($"Peak: {stack.Peak()}");
 
-stack.pop();
+Console.WriteLine($"First Pop: {stack.Pop()}");
 Console.WriteLine("Stack after pop");
-stack.print();
+stack.Print();
 
-stack.clear();
+Console.WriteLine($"Clear: {stack.Clear()}");
 Console.WriteLine("Stack after clearing:");
-stack.print();
+stack.Print();
 
 Console.ReadLine();

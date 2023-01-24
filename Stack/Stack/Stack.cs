@@ -7,28 +7,36 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    public class StackDS<T>
+    public class Stack<T>
     {
         Node<T> head;
-        public StackDS()
-        {
 
+        public Stack()
+        {
         }
-        public void push(T item)
+
+        public Status Push(T item)
         {
             Node<T> node = new Node<T>(item);
             node.Next = head;
             head = node;
-
+            if (!head.Data.Equals(node.Data))
+            {
+                return Status.Failure;
+            }
+            return Status.Success;
         }
-        public Node<T> pop()
+
+        public T Pop()
         {
             Node<T> del = head;
             head = head.Next;
-            return del;
+            return del.Data;
         }
-        public void print()
+
+        public void Print()
         {
+            IEnumerable<T> nodes = new List<T>();
             Node<T> curr = head;
             while (curr != null)
             {
@@ -37,17 +45,18 @@ namespace Stack
             }
             Console.WriteLine();
         }
-        public void peak()
-        {
-            if (head != null)
-            {
-                Console.WriteLine(head.ToString());
-            }
 
+        public T Peak()
+        {
+            return head.Data;
         }
-        public void clear()
+
+        public Status Clear()
         {
             head = null;
+            if (head == null)
+                return Status.Success;
+            return Status.Failure;
         }
     }
 }
